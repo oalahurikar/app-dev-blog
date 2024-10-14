@@ -1,6 +1,6 @@
 ---
-title: Welcome to Quartz
+title: Welcome to App development blog
 ---
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+This is a wiki and blogs for app development.
+TBD details.
