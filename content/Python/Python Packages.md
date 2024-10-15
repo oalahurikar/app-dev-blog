@@ -10,6 +10,13 @@ my_package/
   module1.py
   module2.py
 ```
+
+>[!danger] Confirm, or check if there is better way
+
+Update __init__.py file as
+```python
+from .my_package import *
+```
 Assume module1.py has the following functions:
 ```python
 # module1.py
