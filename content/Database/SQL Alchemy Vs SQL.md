@@ -1,4 +1,4 @@
-**Why SQLAlchemy is Great for Python Developers: A Short Guide**
+**Why [[SQLAlchemy]] is Great for Python Developers: A Short Guide**
 
 **SQLAlchemy** is the good way to interact with your database. Its Object-Relational Mapping (ORM) lets you work with Python classes and objects instead of raw SQL, making development more intuitive. Let’s see how SQLAlchemy compares to writing raw SQL scripts.
 
