@@ -10,7 +10,23 @@ How to make changes in database table?
 
 First, ensure your SQLAlchemy models reflect the new structure. It seems you've already updated the `BasicProperty` model to include the `average_cost` column. Make sure the `Material` model no longer includes this column. Here's an example of how your models might look: 
 
-```python from sqlalchemy import create_engine, Column, Integer, Float, ForeignKey from sqlalchemy.ext.declarative import declarative_base from sqlalchemy.orm import relationship, sessionmaker Base = declarative_base() class Material(Base): __tablename__ = 'materials' id = Column(Integer, primary_key=True) name = Column(String) basic_properties = relationship('BasicProperty', back_populates='material', uselist=False) class BasicProperty(Base): __tablename__ = 'basic_properties' id = Column(Integer, primary_key=True) material_id = Column(Integer, ForeignKey('materials.id'), unique=True) density = Column(Float) # kg/m^3 average_cost = Column(Float) # Dollars per kg material = relationship('Material', back_populates='basic_properties') ``` 
+```python 
+from sqlalchemy import create_engine, Column, Integer, Float, ForeignKey 
+from sqlalchemy.ext.declarative import declarative_base 
+from sqlalchemy.orm import relationship, sessionmaker Base = declarative_base() 
+
+class Material(Base): 
+__tablename__ = 'materials' 
+id = Column(Integer, primary_key=True) 
+name = Column(String) basic_properties = relationship('BasicProperty', back_populates='material', uselist=False) 
+
+class BasicProperty(Base): 
+__tablename__ = 'basic_properties' 
+id = Column(Integer, primary_key=True) material_id = Column(Integer, ForeignKey('materials.id'), unique=True) density = Column(Float) # kg/m^3 
+average_cost = Column(Float) # Dollars per kg 
+material = relationship('Material', 
+back_populates='basic_properties') 
+``` 
 
 ### Step 2: Update the Database Schema To update the database schema, you can use a migration tool like Alembic. Alembic is a lightweight database migration tool for use with SQLAlchemy. Here's how you can use it: 1. **Install Alembic** if you haven't already: 
 ```bash pip install alembic ``` 
